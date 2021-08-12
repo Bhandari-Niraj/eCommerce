@@ -1,13 +1,11 @@
 @extends('admin_layout.admin')
-
 @section('style')
-  <!-- DataTables -->
+<!-- DataTables -->
   <link rel="stylesheet" href="backend/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="backend/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 @endsection
 
 @section('content')
- {{Form::hidden('', $increment=1)}}
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -15,12 +13,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Categories</h1>
+            <h1>Ordes</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Categories</li>
+              <li class="breadcrumb-item active">Ordes</li>
             </ol>
           </div>
         </div>
@@ -34,42 +32,42 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">All categories</h3>
+                <h3 class="card-title">All Ordes</h3>
               </div>
-              @if(Session::has('message'))
-               <div class="alert alert-success">
-                 {{Session::get('message')}}
-               </div>
-              @endif
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th>Num.</th>
-                    <th>Category Name</th>
+                    <th>Date</th>
+                    <th>Client Names</th>
+                    <th>Orders</th>
                     <th>Actions</th>
                   </tr>
                   </thead>
                   <tbody>
-
-                  @foreach($categories as $category)
                   <tr>
-                   <td>{{$increment}}</td>
-                  <td>{{ $category->category_name }}</td>
-                  <td>
-                    <a href="{{url('/edit_category/'.$category->id)}}" class="btn btn-primary"><i class="nav-icon fas fa-edit"></i></a>
-                    <a href="#" id="delete" class="btn btn-danger" ><i class="nav-icon fas fa-trash"></i></a>
-                  </td>
-                  {{Form::hidden('', $increment= $increment+1)}}
-                </tr>
-                  @endforeach
-                 
+                    <td>2020</td>
+                    <td>Win 95+</td>
+                    <td> 4</td>
+                    <td>
+                      <a href="#" class="btn btn-primary"><i class="nav-icon fas fa-eye"></i></a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2020</td>
+                    <td>Win 95+</td>
+                    <td>5</td>
+                    <td>
+                      <a href="#" class="btn btn-primary"><i class="nav-icon fas fa-eye"></i></a>
+                    </td>
+                  </tr>
                   </tbody>
                   <tfoot>
                   <tr>
-                    <th>Num.</th>
-                    <th>Category Name</th>
+                    <th>Date</th>
+                    <th>Client Names</th>
+                    <th>Orders</th>
                     <th>Actions</th>
                   </tr>
                   </tfoot>
@@ -88,6 +86,7 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+
 @endsection
 
 @section('scripts')

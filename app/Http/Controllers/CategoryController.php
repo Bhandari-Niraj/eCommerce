@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Category;
 
 class CategoryController extends Controller
 {
@@ -10,9 +11,42 @@ class CategoryController extends Controller
     {
         return view('admin.addcategory');
     }
+
+    public function savecategory(Request $request)
+    {
+        $request->validate([
+            'category_name'=>'required|unique:categories'
+        ]);
+        $category = new Category();
+        $category->category_name = $request->input('category_name');
+        $category->save();
+        return back()->with('message', 'The category name is sucessfully saved.');
+    }
+
     public function categories()
     {
-        return view('admin.categories');
+        $categories = Category::All();
+        return view('admin.categories')->with('categories', $categories);
     }
+
+    public function edit_category($id)
+    {
+        $category = Category::find($id);
+        return view('admin.edit_category')->with('category', $category);
+    }
+
+    public function updatecategory(Request $request)
+    {
+        $request->validate([
+            'category_name'=>'required|unique:categories'
+        ]);
+        $category = Category::find($request->input('id'));
+        $category->category_name = $request->input('category_name');
+        $category->update();
+
+        return redirect('/categories')->with('message', 'Category name has been sucessfully updated.');
+
+    }
+
     
 }

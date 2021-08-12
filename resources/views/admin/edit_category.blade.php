@@ -29,13 +29,8 @@
             <!-- jquery validation -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Add category</small></h3>
+                <h3 class="card-title">Edit category</small></h3>
               </div>
-              @if(Session::has('message'))
-               <div class="alert alert-success">
-                 {{Session::get('message')}}
-               </div>
-              @endif
 
               @if ($errors->any())
                  <div class="alert alert-danger">
@@ -49,13 +44,14 @@
               <!-- /.card-header -->
               <!-- form start -->
               {{-- <form> --}}
-               {!!Form::open(['action'=>'App\Http\Controllers\CategoryController@savecategory', 'method'=>'POST', 'enctype'=>'multipart/form-data'])  !!}
+               {!!Form::open(['action'=>'App\Http\Controllers\CategoryController@updatecategory', 'method'=>'POST', 'enctype'=>'multipart/form-data'])  !!}
                 {{ csrf_field() }}
                 <div class="card-body">
                   <div class="form-group">
+                  {{Form::hidden('id', $category->id)}}
                  {{--    <label for="exampleInputEmail1">Category name</label> --}}
                   {{Form::label('', 'Category name',['for'=>'exampleInputEmail1'])}}
-                  {{Form::text('category_name', '', ['class'=>'form-control', 'id'=>'exampleInputEmail1', 'placeholder'=>'Enter Category'] )}}
+                  {{Form::text('category_name', $category->category_name,  ['class'=>'form-control', 'id'=> 'exampleInputEmail1', 'placeholder'=>'Enter Category'] )}}
                    {{--  <input type="text" name="category_name" class="form-control" id="exampleInputEmail1" placeholder="Enter category"> --}}
                
                   </div>
@@ -64,7 +60,7 @@
                 <div class="card-footer">
                   <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
                  {{--  <input type="submit" class="btn btn-primary" value="Save" > --}}
-                 {{Form::submit('Save', ['class'=>'btn btn-primary'])}}
+                 {{Form::submit('Update', ['class'=>'btn btn-primary'])}}
                 </div>
                 {!!Form::close() !!}
               {{-- </form> --}}
@@ -88,7 +84,10 @@
 
 @section('scripts')
 <!-- AdminLTE App -->
-<script src="backend/dist/js/adminlte.min.js"></script>
+<script src="{{asset('backend/dist/js/adminlte.min.js')}}"></script>
+<!-- jquery-validation -->
+<script src="{{asset('backend/plugins/jquery-validation/jquery.validate.min.js')}}"></script>
+<script src="{{asset('backend/plugins/jquery-validation/additional-methods.min.js')}}"></script>
 <script>
 $(function () {
   $.validator.setDefaults({
