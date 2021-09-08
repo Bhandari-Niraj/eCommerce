@@ -29,7 +29,7 @@
             <!-- jquery validation -->
             <div class="card card-warning">
               <div class="card-header">
-                <h3 class="card-title">Add slider</h3>
+                <h3 class="card-title">Edit slider</h3>
               </div>
                @if(Session::has('message'))
                <div class="alert alert-success">
@@ -48,17 +48,18 @@
               @endif
               <!-- /.card-header -->
               <!-- form start -->
-              {!!Form::open(['action'=>'App\Http\Controllers\SliderController@saveslider',
+              {!!Form::open(['action'=>'App\Http\Controllers\SliderController@updateslider',
               'method'=>'POST', 'enctype'=>'multipart/form-data']) !!}
               {{csrf_field()}}
                 <div class="card-body">
                   <div class="form-group">
+                    {{Form::hidden('id', $slider->id)}}
                     {{Form::label('', 'Description one', ['for'=>'descriptionone'])}}
-                    {{Form::text('description1', '', ['class'=>'form-control', 'id'=>'description1', 'placeholder'=>'Enter Description one'])}}
+                    {{Form::text('description1', $slider->description1, ['class'=>'form-control', 'id'=>'description1', 'placeholder'=>'Enter Description one'])}}
                   </div>
                    <div class="form-group">
                     {{Form::label('', 'Description two', ['for'=>'desciptiontwo'])}}
-                    {{Form::text('description2', '', ['class'=>'form-control', 'id'=>'description2', 'placeholder'=>'Enter Description two'])}}
+                    {{Form::text('description2', $slider->description2 , ['class'=>'form-control', 'id'=>'description2', 'placeholder'=>'Enter Description two'])}}
                   </div>
               
                   <label for="exampleInputFile">Slider image</label>
@@ -78,7 +79,7 @@
                 <div class="card-footer">
                   <!-- <button type="submit" class="btn btn-success">Submit</button> -->
                  {{--  <input type="submit" class="btn btn-success" value="Save"> --}}
-                  {{Form::submit('Save', ['class'=>'btn btn-primary'])}}
+                  {{Form::submit('Update', ['class'=>'btn btn-primary'])}}
                 </div>
                 {!!Form::close()!!}
               {{-- </form> --}}

@@ -1,19 +1,22 @@
 @extends('admin_layout.admin')
 
+@section('scripts')
+@endsection
+
 @section('content')
- <!-- Content Wrapper. Contains page content -->
+  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Slider</h1>
+            <h1>Product</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Slider</li>
+              <li class="breadcrumb-item active">Product</li>
             </ol>
           </div>
         </div>
@@ -27,9 +30,9 @@
           <!-- left column -->
           <div class="col-md-12">
             <!-- jquery validation -->
-            <div class="card card-warning">
+            <div class="card card-success">
               <div class="card-header">
-                <h3 class="card-title">Add slider</h3>
+                <h3 class="card-title">Edit product</h3>
               </div>
                @if(Session::has('message'))
                <div class="alert alert-success">
@@ -48,25 +51,40 @@
               @endif
               <!-- /.card-header -->
               <!-- form start -->
-              {!!Form::open(['action'=>'App\Http\Controllers\SliderController@saveslider',
+             {{--  <form id="quickForm"> --}}
+              {!!Form::open(['action'=>'App\Http\Controllers\ProductController@updateproduct',
               'method'=>'POST', 'enctype'=>'multipart/form-data']) !!}
               {{csrf_field()}}
                 <div class="card-body">
                   <div class="form-group">
-                    {{Form::label('', 'Description one', ['for'=>'descriptionone'])}}
-                    {{Form::text('description1', '', ['class'=>'form-control', 'id'=>'description1', 'placeholder'=>'Enter Description one'])}}
+                    {{Form::hidden('id', $product->id)}}
+                   {{--  <label for="exampleInputEmail1">Product name</label>
+                    <input type="text" name="product_name" class="form-control" id="exampleInputEmail1" placeholder="Enter product name"> --}}
+                    {{Form::label('', 'Product name', ['for'=>'productname'])}}
+                    {{Form::text('product_name', $product->product_name, ['class'=>'form-control', 'id'=>'product_name', 'placeholder'=>'Enter product name'])}}
                   </div>
-                   <div class="form-group">
-                    {{Form::label('', 'Description two', ['for'=>'desciptiontwo'])}}
-                    {{Form::text('description2', '', ['class'=>'form-control', 'id'=>'description2', 'placeholder'=>'Enter Description two'])}}
+                  <div class="form-group">
+                    {{-- <label for="exampleInputEmail1">Product price</label>
+                    <input type="number" name="product_price" class="form-control" id="exampleInputEmail1" placeholder="Enter product price" min="1"> --}}
+                    {{Form::label('','Product price', ['for'=>'productprice'])}}
+                    {{Form::text('product_price', $product->product_price ,['class'=>'form-control', 'id'=>'product_price', 'placeholder'=>'Enter product price'])}}
                   </div>
-              
-                  <label for="exampleInputFile">Slider image</label>
+                  <div class="form-group">
+                    {{Form::label('', 'Product category', ['for'=>'product_category'])}}
+                   {{--  <label>Product category</label>
+                    <select class="form-control select2" style="width: 100%;">
+                      <option selected="selected">Fruit</option>
+                      <option>Juice</option>
+                      <option>Vegetable</option>
+                    </select> --}}
+                    {{Form::select('product_category', $categories, $product->product_category, [ 'class'=>'form-control select2'])}}
+                  </div>
+                  <label for="exampleInputFile">Product image</label>
                   <div class="input-group">
                     <div class="custom-file">
                       {{-- <input type="file" class="custom-file-input" id="exampleInputFile">
                       <label class="custom-file-label" for="exampleInputFile">Choose file</label> --}}
-                      {{Form::file('slider_image', ['class'=>'custom-file-input', 'id'=>'exampleInputFile'])}}
+                      {{Form::file('product_image', ['class'=>'custom-file-input', 'id'=>'exampleInputFile'])}}
                       {{Form::label('', 'Choose file', ['class'=>'custom-file-label', 'id'=>'exampleInputFile'])}}
                     </div>
                     <div class="input-group-append">
@@ -78,12 +96,12 @@
                 <div class="card-footer">
                   <!-- <button type="submit" class="btn btn-success">Submit</button> -->
                  {{--  <input type="submit" class="btn btn-success" value="Save"> --}}
-                  {{Form::submit('Save', ['class'=>'btn btn-primary'])}}
+                  {{Form::submit('Update', ['class'=>'btn btn-primary'])}}
                 </div>
                 {!!Form::close()!!}
               {{-- </form> --}}
             </div>
-            <!-- /.card --> 
+            <!-- /.card -->
             </div>
           <!--/.col (left) -->
           <!-- right column -->
@@ -98,10 +116,10 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-@endsection
+  @endsection
 
-@section('scripts')
-<!-- AdminLTE App -->
+  @section('scripts')
+  <!-- AdminLTE App -->
 <script src="backend/dist/js/adminlte.min.js"></script>
 <script>
 $(function () {
@@ -149,5 +167,5 @@ $(function () {
   });
 });
 </script>
-@endsection
 
+  @endsection

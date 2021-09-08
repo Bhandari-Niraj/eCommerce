@@ -68,8 +68,8 @@
 					</li>
 
 					<li class="nav-item has-treeview  {{request()->is('addslider') ? 'menu-open' : ' '}} {{request()->is('sliders') ? 'menu-open' : ' '}}">
-						<a href="" class="nav-link {{request()->is('addslider') ? 'active' : ' '}} {{request()->is('sliders') ? 'active' : ' '}}>
-							<i class="nav-icon fas fa-folder"></i>
+						<a href="" class="nav-link {{request()->is('addslider') ? 'active' : ' '}} {{request()->is('sliders') ? 'active' : ' '}}">
+								<i class="nav-icon fas fa-folder"></i>
 							<p>
 								Sliders
 								<i class="fas fa-angle-left right"></i>
