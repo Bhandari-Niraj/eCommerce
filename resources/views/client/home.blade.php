@@ -49,7 +49,7 @@
             		<span class="flaticon-diet"></span>
               </div>
               <div class="media-body">
-                <h3 class="heading">Always Fresh</h3>
+                <h3 class="heading">Safe Delivery</h3>
                 <span>Product well package</span>
               </div>
             </div>    
@@ -88,8 +88,8 @@
 							<div class="col-md-6 order-md-last align-items-stretch d-flex">
 								<div class="category-wrap-2 ftco-animate img align-self-stretch d-flex" style="background-image: url(frontend/images/category.jpg);">
 									<div class="text text-center">
-										<h2>Vegetables</h2>
-										<p>Protect the health of every home</p>
+										<h2>Electronics</h2>
+										<p>We fit your needs</p>
 										<p><a href="#" class="btn btn-primary">Shop now</a></p>
 									</div>
 								</div>
@@ -97,12 +97,12 @@
 							<div class="col-md-6">
 								<div class="category-wrap ftco-animate img mb-4 d-flex align-items-end" style="background-image: url(frontend/images/category-1.jpg);">
 									<div class="text px-3 py-1">
-										<h2 class="mb-0"><a href="frontend/#">Fruits</a></h2>
+										<h2 class="mb-0"><a href="frontend/#">apple</a></h2>
 									</div>
 								</div>
 								<div class="category-wrap ftco-animate img d-flex align-items-end" style="background-image: url(frontend/images/category-2.jpg);">
 									<div class="text px-3 py-1">
-										<h2 class="mb-0"><a href="frontend/#">Vegetables</a></h2>
+										<h2 class="mb-0"><a href="frontend/#">Laptop</a></h2>
 									</div>
 								</div>
 							</div>
@@ -112,12 +112,12 @@
 					<div class="col-md-4">
 						<div class="category-wrap ftco-animate img mb-4 d-flex align-items-end" style="background-image: url(frontend/images/category-3.jpg);">
 							<div class="text px-3 py-1">
-								<h2 class="mb-0"><a href="frontend/#">Juices</a></h2>
+								<h2 class="mb-0"><a href="frontend/#">Camera</a></h2>
 							</div>		
 						</div>
-						<div class="category-wrap ftco-animate img d-flex align-items-end" style="background-image: url(frontend/images/category-4.jpg);">
+						<div class="category-wrap ftco-animate img d-flex align-items-end" style="background-image: url(frontend/images/category-4.png);">
 							<div class="text px-3 py-1">
-								<h2 class="mb-0"><a href="frontend/#">Dried</a></h2>
+								<h2 class="mb-0"><a href="frontend/#">Drone</a></h2>
 							</div>
 						</div>
 					</div>
@@ -172,7 +172,7 @@
     	</div>
     </section>
 		
-		<section class="ftco-section img" style="background-image: url(frontend/images/bg_3.jpg);">
+		<section class="ftco-section img" style="background-image: url(frontend/images/category-2.jpg);">
     	<div class="container">
 				<div class="row justify-content-end">
           <div class="col-md-6 heading-section ftco-animate deal-of-the-day ftco-animate">

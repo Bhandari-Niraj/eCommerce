@@ -9,7 +9,7 @@
 					    </div>
 					    <div class="col-md pr-4 d-flex topper align-items-center">
 					    	<div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-paper-plane"></span></div>
-						    <span class="text">youremail@email.com</span>
+						    <span class="text">electro@gmail.com</span>
 					    </div>
 					    <div class="col-md-5 pr-4 d-flex topper align-items-center text-lg-right">
 						    <span class="text">3-5 Business days delivery &amp; Free Returns</span>
@@ -21,7 +21,7 @@
     </div>
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="frontend/index.html">Vegefoods</a>
+	      <a class="navbar-brand" href="frontend/index.html">Electro World</a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
@@ -33,7 +33,11 @@
 	          
 	          <li class="nav-item cta cta-colored"><a href="{{ url('/cart') }}" class="nav-link"><span class="icon-shopping_cart"></span>[{{Session::has('cart') ? Session::get('cart')->totalQty : 0}}]</a></li>
 
-             <li class="nav-item active"><a href="{{ url('/login') }}" class="nav-link"><span class="fa fa-user"></span>Login</a></li>
+             @if(Session::has('client'))
+             <li class="nav-item active"><a href="{{ url('/logout') }}" class="nav-link"><span class="fa fa-user"></span>Logout</a></li>
+             @else
+              <li class="nav-item active"><a href="{{ url('/login') }}" class="nav-link"><span class="fa fa-user"></span>Login</a></li>
+             @endif
 
 	        </ul>
 	      </div>

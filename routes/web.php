@@ -60,8 +60,10 @@ Route::get('/cart', [ClientController::class, 'cart']);
 Route::get('/checkout', [ClientController::class, 'checkout']);
 Route::get('/login', [ClientController::class, 'login']);
 Route::get('/signup', [ClientController::class, 'signup']);
+Route::post('/create_acount', [ClientController::class, 'create_account']);
+Route::post('/access_account', [ClientController::class, 'access_account']);
 Route::get('/orders', [ClientController::class, 'orders']);
 Route::post('/update_qty/{id}', [ClientController::class, 'update_qty']);
-Route::get('/remove_from_cart/{id}'. [ClientController::class, 'remove_from_cart']);
+Route::get('/remove_from_cart/{id}', [ClientController::class, 'remove_from_cart']);
 
 

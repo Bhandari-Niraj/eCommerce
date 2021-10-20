@@ -55,5 +55,11 @@ class CategoryController extends Controller
         return back()->with('message', 'The category name is sucessfully deleted.');
     }
 
+    public function logout()
+    {
+        Session::forget('client');
+        return redirect('/shop');
+    }
+
     
 }

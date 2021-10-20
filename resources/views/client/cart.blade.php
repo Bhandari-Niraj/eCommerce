@@ -124,7 +124,7 @@
     					<hr>
     					<p class="d-flex total-price">
     						<span>Total</span>
-    						<span>{{ Session::get('cart')->totalPrice}}</span>
+    						<span> ${{ Session::has('cart')?Session::get('cart')->totalPrice : null}}</span>
     					</p>
     				</div>
     				<p><a href="{{ url('/checkout') }}" class="btn btn-primary py-3 px-4">Proceed to Checkout</a></p>
